@@ -1,6 +1,0 @@
-package.json
-.circleci
-.elasticbeanstalk
-client
-*.yaml
-*.yml
