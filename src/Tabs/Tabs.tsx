@@ -229,6 +229,10 @@ const TabList = forwardRef((props: TabListProps, ref) => {
 
     const scrollHandler = useCallback(
         throttle(() => {
+            if (!tabListRef?.current || !tabContainerRef?.current) {
+                return null;
+            }
+
             const totalScrollWidth = tabListRef.current.clientWidth - tabContainerRef.current.clientWidth;
 
             if (tabContainerRef.current.scrollLeft > 0 && tabContainerRef.current.scrollLeft < totalScrollWidth) {
