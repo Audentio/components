@@ -11,6 +11,8 @@ const defaultConfig = (theme) => ({
 
     // if true CSSReset won't set height: 100% on body,html,#root
     noHeight: false,
+
+    noOverflow: true,
 });
 
 export const CSSReset = ({ config }: CSSResetProps) => {
@@ -19,7 +21,7 @@ export const CSSReset = ({ config }: CSSResetProps) => {
 
         const _config = config ? config(theme, _defaultConfig) : defaultConfig(theme);
 
-        const { color, bg, borderColor, placeholderColor, noHeight } = _config;
+        const { color, bg, borderColor, placeholderColor, noHeight, noOverflow } = _config;
 
         return css`
             html {
@@ -38,6 +40,9 @@ export const CSSReset = ({ config }: CSSResetProps) => {
             #root {
                 width: 100%;
                 ${!noHeight && 'height: 100%;'}
+
+                ${noOverflow &&
+                'overflow: hidden;'} // default true. prevent scroll issues with canvases. <main> handles content scrolling
             }
 
             /**
