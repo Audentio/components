@@ -229,6 +229,10 @@ const TabList = forwardRef((props: TabListProps, ref) => {
 
     const scrollHandler = useCallback(
         throttle(() => {
+            if (!tabListRef?.current || !tabContainerRef?.current) {
+                return null;
+            }
+
             const totalScrollWidth = tabListRef.current.clientWidth - tabContainerRef.current.clientWidth;
 
             if (tabContainerRef.current.scrollLeft > 0 && tabContainerRef.current.scrollLeft < totalScrollWidth) {
@@ -254,17 +258,17 @@ const TabList = forwardRef((props: TabListProps, ref) => {
     );
 
     useEffect(() => {
-        if (tabContainerRef.current) {
+        if (tabContainerRef?.current && typeof window !== 'undefined') {
             window.addEventListener('resize', scrollHandler);
 
-            return function cleanup() {
+            return () => {
                 window.removeEventListener('resize', scrollHandler);
             };
         }
     }, [tabContainerRef?.current]);
 
     useEffect(() => {
-        if (tabContainerRef.current) {
+        if (tabContainerRef?.current && typeof window !== 'undefined') {
             // initial mount
             scrollHandler();
 
@@ -272,8 +276,8 @@ const TabList = forwardRef((props: TabListProps, ref) => {
 
             tabContainerRef.current.addEventListener('scroll', scrollHandler);
 
-            return function cleanup() {
-                tabContainerRef.current.removeEventListener('scroll', scrollHandler);
+            return () => {
+                tabContainerRef.current?.removeEventListener('scroll', scrollHandler);
                 window.removeEventListener('resize', scrollHandler);
             };
         }
