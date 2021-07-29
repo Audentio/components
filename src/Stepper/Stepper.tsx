@@ -119,6 +119,7 @@ export const StepperItem = React.forwardRef(
             <>
                 <Tab onClick={onClick} {...outerStyleProps} ref={ref} {...rest}>
                     <Button
+                        as="div"
                         iconOnly
                         {...itemStyleProps}
                         // borderColor={!isCompleted ? 'border' : 'secondary'}
