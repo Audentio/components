@@ -1,4 +1,15 @@
+import { keyframes } from '@emotion/react';
 import { useTheme } from '../ThemeProvider';
+
+const fadeIn = keyframes`
+  from, 0%, to {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+`
 
 export const menuStyle = (props, theme) => ({
     style: {
@@ -13,6 +24,7 @@ export const menuStyle = (props, theme) => ({
         rounded: 'md',
         tabIndex: 1,
         zIndex: 'popover',
+        animation: `${fadeIn} ease-in .2s`,
         _focus: { outline: 0 },
     },
 });
