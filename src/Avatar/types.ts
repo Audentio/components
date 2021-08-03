@@ -30,12 +30,14 @@ export interface IAvatar {
      * The image url of the `Avatar`
      */
     src?: string;
+    useExact?: boolean;
 }
 
 export type AvatarProps = IAvatar & Omit<BoxProps, 'size'>;
 
 interface IAvatarName {
     name?: string;
+    useExact?: boolean;
 }
 
 export type AvatarNameProps = IAvatarName & BoxProps;

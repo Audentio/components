@@ -13,7 +13,7 @@ export const AvatarBadge = (props: AvatarBadgeProps) => {
     return <Box {...avatarBadgeProps} {...props} />;
 };
 
-const getInitials = name => {
+const getInitials = (name) => {
     const [firstName, lastName] = name.split(' ');
 
     if (firstName && lastName) {
@@ -23,15 +23,31 @@ const getInitials = name => {
     return firstName.charAt(0);
 };
 
-const AvatarName = ({ name, ...props }: AvatarNameProps) => {
+const truncateName = (name) => {
+    if (name && name.length > 3) {
+        return `${name.charAt(0)}${name.charAt(1)}${name.charAt(3)}`;
+    } else {
+        return name;
+    }
+};
+
+const AvatarName = ({ name, useExact, ...props }: AvatarNameProps) => {
     return (
-        <Box textAlign="center" textTransform="uppercase" fontWeight="medium" aria-label={name} {...props}>
-            {name ? getInitials(name) : null}
+        <Box
+            textAlign="center"
+            fontSize={name.length > 3 && '.9em'}
+            textTransform="uppercase"
+            fontWeight="medium"
+            aria-label={name}
+            {...props}
+        >
+            {name && !useExact ? getInitials(name) : null}
+            {name && useExact ? truncateName(name) : null}
         </Box>
     );
 };
 
-const DefaultAvatar = props => (
+const DefaultAvatar = (props) => (
     <Box size="100%" {...props}>
         <svg fill="#fff" viewBox="0 0 128 128" role="img">
             <g>
@@ -46,7 +62,16 @@ const DefaultAvatar = props => (
  * The Avatar component is used to represent user, and displays the profile
  * picture, initials or fallback icon.
  */
-export const Avatar = ({ size = 'md', showBorder, name, src, borderColor, children, ...rest }: AvatarProps) => {
+export const Avatar = ({
+    size = 'md',
+    showBorder,
+    name,
+    src,
+    useExact,
+    borderColor,
+    children,
+    ...rest
+}: AvatarProps) => {
     const avatarStyleProps = useAvatarStyle({
         name,
         size,
@@ -64,13 +89,13 @@ export const Avatar = ({ size = 'md', showBorder, name, src, borderColor, childr
 
         if (src && !hasLoaded) {
             if (name) {
-                return <AvatarName size={_size} name={name} />;
+                return <AvatarName useExact={useExact} size={_size} name={name} />;
             }
             return <DefaultAvatar aria-label={name} />;
         }
 
         if (!src && name) {
-            return <AvatarName size={_size} name={name} />;
+            return <AvatarName useExact={useExact} size={_size} name={name} />;
         }
 
         return <DefaultAvatar aria-label={name} />;
