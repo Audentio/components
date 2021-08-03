@@ -1,3 +1,4 @@
+import { isDarkColor } from '../theme';
 import { componentStyleDef } from '../theme/types';
 import { useTheme } from '../ThemeProvider';
 import { AvatarProps } from './types';
@@ -16,6 +17,14 @@ function string2Hex(str) {
         color += ('00' + value.toString(16)).substr(-2);
     }
     return color;
+}
+
+let dynamicTextColor = '#fff';
+
+const bgColor = string2Hex(name);
+
+if (isDarkColor(bgColor) === false) {
+    dynamicTextColor = '#000';
 }
 
 export const avatarSizes = {
@@ -39,6 +48,7 @@ export const avatarStyle: componentStyleDef<AvatarProps> = ({ size, showBorder, 
         justifyContent: 'center',
         position: 'relative',
         bg: name ? string2Hex(name) : 'gray.400',
+        color: dynamicTextColor,
         size: avatarSizes[size],
         ...(showBorder && {
             border: '2px',
