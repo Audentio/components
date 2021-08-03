@@ -25,7 +25,6 @@ const getInitials = (name) => {
 
 const truncateName = (name) => {
     if (name && name.length > 3) {
-        console.log(name.length);
         return `${name.charAt(0)}${name.charAt(1)}${name.charAt(3)}`;
     } else {
         return name;
