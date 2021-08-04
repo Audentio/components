@@ -54,7 +54,7 @@ export const Tr = ({ expandedContent, children, ...rest }: TableRowProps) => {
 };
 
 const ExpandedRow = (props) => {
-    const { expandedContent, expanded } = props;
+    const { expandedContent, expanded, ...rest } = props;
     const { expandedRow: expandedRowStyleProps } = useTableStyle({});
     if (!expandedContent || !expanded) {
         return null;
@@ -66,6 +66,7 @@ const ExpandedRow = (props) => {
             expandedContent={null}
             borderBottomWidth={expanded ? 1 : 0}
             borderColor="border"
+            {...rest}
         >
             <Td colSpan={100}>
                 <Collapse my="spacing" isOpen={expanded}>

@@ -22,6 +22,8 @@ stories.add('Default', () => (
     </>
 ));
 
+stories.add('Default (w/o image)', () => <Avatar useExact name="Uchiha Itachi" />);
+
 stories.add('Avatar Group', () => (
     <AvatarGroup size="md" max={2}>
         <Avatar name="Uchiha Itachi" src="https://bit.ly/uchiha-itachi" />
