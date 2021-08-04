@@ -25,7 +25,7 @@ const getInitials = (name) => {
 
 const truncateName = (name) => {
     if (name && name.length > 3) {
-        return `${name.charAt(0)}${name.charAt(1)}${name.charAt(3)}`;
+        return `${name.charAt(0)}${name.charAt(1)}${name.charAt(2)}`;
     } else {
         return name;
     }
@@ -35,7 +35,7 @@ const AvatarName = ({ name, useExact, ...props }: AvatarNameProps) => {
     return (
         <Box
             textAlign="center"
-            fontSize={name.length > 3 && '.9em'}
+            fontSize={name.length > 3 && '.8em'}
             textTransform="uppercase"
             fontWeight="medium"
             aria-label={name}
