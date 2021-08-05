@@ -21,8 +21,8 @@ export const Tr = ({ expandedContent, children, ...rest }: TableRowProps) => {
             <PseudoBox
                 as="tr"
                 {...rowStyleProps}
-                {...rest}
                 d="table-row"
+                {...rest}
                 {...(expandedContent ? { onClick: handleExpand, cursor: 'pointer' } : {})}
             >
                 {children}
