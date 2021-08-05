@@ -35,7 +35,7 @@ const AvatarName = ({ name, useExact, ...props }: AvatarNameProps) => {
     return (
         <Box
             textAlign="center"
-            fontSize={name.length > 3 && '.8em'}
+            fontSize={name.length > 3 && '.7em'}
             textTransform="uppercase"
             fontWeight="medium"
             aria-label={name}
