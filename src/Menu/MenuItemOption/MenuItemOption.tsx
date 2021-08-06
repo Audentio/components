@@ -27,7 +27,7 @@ export const MenuItemOption = forwardRef(
 
         const role = `menuitem${type}`;
 
-        const handleSelect = e => {
+        const handleSelect = (e) => {
             if (onClick) {
                 onClick(e);
             }
@@ -36,7 +36,7 @@ export const MenuItemOption = forwardRef(
             }
         };
 
-        const handleClick = event => {
+        const handleClick = (event) => {
             if (isDisabled) {
                 event.stopPropagation();
                 event.preventDefault();
@@ -45,7 +45,7 @@ export const MenuItemOption = forwardRef(
             handleSelect(event);
         };
 
-        const handleKeyDown = event => {
+        const handleKeyDown = (event) => {
             if (isDisabled) return;
             if (['Enter', ' '].includes(event.key)) {
                 event.preventDefault();
@@ -57,7 +57,7 @@ export const MenuItemOption = forwardRef(
             }
         };
 
-        const handleMouseEnter = event => {
+        const handleMouseEnter = (event) => {
             if (isDisabled) {
                 event.stopPropagation();
                 event.preventDefault();
@@ -71,7 +71,7 @@ export const MenuItemOption = forwardRef(
             }
         };
 
-        const handleMouseLeave = event => {
+        const handleMouseLeave = (event) => {
             focusAtIndex(-1);
             if (onMouseLeave) {
                 onMouseLeave(event);
@@ -100,8 +100,8 @@ export const MenuItemOption = forwardRef(
                     name="check"
                     opacity={isChecked ? 1 : 0}
                     color="currentColor"
-                    size="1em"
-                    ml="spacing"
+                    size="1.6em"
+                    ml=".8em"
                     mr="-4px"
                     aria-hidden
                     data-menuitem-icon=""
@@ -131,7 +131,7 @@ export const MenuOptionGroup = ({
 
     const derivedValue = (isControlled ? valueProp : value) as string[];
 
-    const handleChange = _value => {
+    const handleChange = (_value) => {
         if (type === 'radio') {
             if (!isControlled) {
                 setValue(_value);
@@ -143,7 +143,7 @@ export const MenuOptionGroup = ({
 
         if (type === 'checkbox') {
             const newValue = derivedValue.includes(_value)
-                ? derivedValue.filter(itemValue => itemValue !== _value)
+                ? derivedValue.filter((itemValue) => itemValue !== _value)
                 : [...derivedValue, _value];
 
             if (!isControlled) {
@@ -159,7 +159,7 @@ export const MenuOptionGroup = ({
 
     return (
         <MenuGroup title={title} {...rest}>
-            {Children.map(children, child => {
+            {Children.map(children, (child) => {
                 if (!isValidElement(child)) {
                     return null;
                 }
@@ -168,7 +168,7 @@ export const MenuOptionGroup = ({
                     return cloneElement(child, {
                         type,
                         key: child.props.value,
-                        onClick: event => {
+                        onClick: (event) => {
                             handleChange(child.props.value);
                             if (child.props.onClick) {
                                 child.props.onClick(event);
@@ -183,7 +183,7 @@ export const MenuOptionGroup = ({
                     return cloneElement(child, {
                         type,
                         key: child.props.value,
-                        onClick: event => {
+                        onClick: (event) => {
                             handleChange(child.props.value);
                             if (child.props.onClick) {
                                 child.props.onClick(event);
