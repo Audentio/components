@@ -9,6 +9,8 @@ type ILabelProps = {
      */
     isDisabled?: boolean;
     children: React.ReactNode;
+    tooltip?: React.ReactNode;
+    tooltipTitle?: string;
 };
 
 export type FormLabelProps = ILabelProps & BoxProps & React.LabelHTMLAttributes<any>;

@@ -33,6 +33,10 @@ export interface IFormControl {
      * Form input label to be display if FormControl contains <FormLabel> child
      */
     label?: string;
+    
+    tooltip?: any;
+
+    tooltipTitle?: string;
 }
 
 export type FormControlProps = IFormControl & BoxProps;

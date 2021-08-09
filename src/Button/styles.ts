@@ -99,7 +99,7 @@ export const buttonStyle = ({ color = 'button', variant }, theme) => ({
     },
     isDisabled: {
         _disabled: {
-            opacity: '40%',
+            opacity: '60%',
             cursor: 'not-allowed',
             boxShadow: 'none',
             bg: variant === 'unstyled' ? 'transparent' : 'disabled',

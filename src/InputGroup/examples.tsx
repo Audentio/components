@@ -8,7 +8,7 @@ import { Input } from '../Input';
 import { InputLeftAddon, InputRightAddon } from '../InputAddon';
 import { InputLeftElement, InputRightElement } from '../InputElement';
 
-const stories = storiesOf('Input Group', module).addDecorator(story => {
+const stories = storiesOf('Input Group', module).addDecorator((story) => {
     return (
         <Box maxWidth="sm" mx="auto" mt={5}>
             {story()}
@@ -62,10 +62,18 @@ stories.add('with icons', () => (
     </Box>
 ));
 
+stories.add('with tooltip', () => (
+    <Box>
+        <InputGroup size={size} label="Welcome" tooltip="This is a test tooltip" tooltipTitle="Welcome">
+            <Input placeholder="Welcome" />
+        </InputGroup>
+    </Box>
+));
+
 const PasswordInput = () => {
     const [show, setShow] = useState(false);
     return (
-        <InputGroup size="md" label="Password" id="password">
+        <InputGroup size="md" label="Password" id="password" tooltip={<Box>hello</Box>}>
             <Input pr="72px" type={show ? 'text' : 'password'} placeholder="Enter password" />
             <InputRightElement width="72px">
                 <Button size="sm" variant="unstyled" onClick={() => setShow(!show)}>
