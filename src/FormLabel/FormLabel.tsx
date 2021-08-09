@@ -31,7 +31,7 @@ export const FormLabel = forwardRef(({ children, tooltip, tooltipTitle, ...props
     });
 
     return (
-        <Flex align="center" gridGap="spacing-sm" d="inline-flex">
+        <Flex align="center" gridGap="spacing-sm">
             <Text ref={ref} as="label" {...formLabelStyleProps} {...props}>
                 {children}
                 {formControl.isRequired && <RequiredIndicator />}
