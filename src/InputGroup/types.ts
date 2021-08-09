@@ -11,6 +11,8 @@ export interface IInputGroup {
     isFullWidth?: boolean;
 
     name?: string;
+    tooltip?: any;
+    tooltipTitle?: string;
 }
 
 export type InputGroupProps = IInputGroup & FormControlProps & FormFieldProps & BoxProps;
