@@ -31,15 +31,21 @@ export const FormLabel = forwardRef(({ children, tooltip, tooltipTitle, ...props
     });
 
     return (
-        <Flex align="center" gridGap="spacing-sm">
+        <Flex align="center" gridGap="spacing-sm" pb="spacing-sm" pr="spacing-sm">
             <Text ref={ref} as="label" {...formLabelStyleProps} {...props}>
                 {children}
                 {formControl.isRequired && <RequiredIndicator />}
             </Text>
             {tooltip && (
-                <Box pos="relative">
+                <Box pos="relative" lineHeight="1">
                     <Tooltip label={tooltip} shouldWrapChildren>
-                        <Icon title={tooltipTitle && tooltipTitle} name="info" size="18px" />
+                        <Icon
+                            d="inline-block"
+                            title={tooltipTitle && tooltipTitle}
+                            name="info"
+                            size="18px"
+                            viewBox="0 0 24 24"
+                        />
                     </Tooltip>
                 </Box>
             )}

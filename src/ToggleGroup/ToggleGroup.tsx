@@ -37,12 +37,17 @@ export const ToggleGroup = ({
     isFullWidth,
     onChange,
     isInline,
+    tooltip,
     ...rest
 }: ToggleGroupProps) => {
     const fallbackName = `radio-${useId()}`;
     const _name = name || fallbackName;
 
-    const { onChange: formOnChange, value: initialToggleValue, errors } = useFormField({
+    const {
+        onChange: formOnChange,
+        value: initialToggleValue,
+        errors,
+    } = useFormField({
         name: _name,
         onChange,
         schema,
@@ -154,7 +159,7 @@ export const ToggleGroup = ({
     const spacingProps = isInline ? { mr: 'spacing' } : { mb: 'spacing' };
 
     return (
-        <FormControlWrapper error={errors} {...spacingProps} {...rest}>
+        <FormControlWrapper tooltip={tooltip} error={errors} {...spacingProps} {...rest}>
             <Box role="radiogroup" onKeyDown={handleKeyDown} {...toggleGroupStyleProps} {...rest}>
                 {clones}
             </Box>

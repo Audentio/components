@@ -24,6 +24,7 @@ type IIcon = {
      * element and won't be focuable.
      */
     focusable?: boolean;
+    viewBox?: string;
 };
 
 export type IconProps = IIcon & Omit<BoxProps, 'size'>;
