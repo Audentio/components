@@ -104,7 +104,7 @@ export function Form(props: FormProps) {
                 formDisabled: disabled,
             }}
         >
-            <form onSubmit={formOnSubmit} noValidate {...rest}>
+            <form method="POST" onSubmit={formOnSubmit} noValidate {...rest}>
                 {props.children}
             </form>
         </FormContext.Provider>
