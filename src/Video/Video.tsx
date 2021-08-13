@@ -66,7 +66,21 @@ const VideoError = ({ error }) => {
 const SourceMissingError = new Error('video source missing');
 
 export const Video = (props: VideoProps) => {
-    const { loading, error, src, cover, id, autoplay = true, allowSticky, height, width, ...rest } = props;
+    const {
+        loading,
+        error,
+        controls,
+        muted,
+        src,
+        cover,
+        id,
+        loop,
+        autoplay = true,
+        allowSticky,
+        height,
+        width,
+        ...rest
+    } = props;
 
     const videoRef = useRef(null);
 
@@ -79,8 +93,8 @@ export const Video = (props: VideoProps) => {
     useEffect(() => {
         if (allowSticky && 'IntersectionObserver' in window && windowWidth > 600) {
             const observer = new IntersectionObserver(
-                items => {
-                    items.forEach(item => {
+                (items) => {
+                    items.forEach((item) => {
                         setIsStuck(!item.isIntersecting);
                     });
                 },
@@ -138,7 +152,16 @@ export const Video = (props: VideoProps) => {
     //* Native Video
     return (
         <OuterContainer id={id} cover={cover} innerRef={videoRef} src={src} height={height} width={width} {...rest}>
-            <video poster={cover} playsInline key={id} controls autoPlay={autoplay} style={videoStyleProps}>
+            <video
+                poster={cover}
+                playsInline
+                key={id}
+                {...(loop && loop)}
+                {...(muted && muted)}
+                {...(controls && controls)}
+                autoPlay={autoplay}
+                style={videoStyleProps}
+            >
                 <source src={src} type="video/mp4" />
                 <source src={src} media="all and (max-width:800px)" type="video/mp4" />
                 <p>
