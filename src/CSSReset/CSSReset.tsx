@@ -5,7 +5,7 @@ import { CSSResetProps } from './types';
 
 const defaultConfig = (theme) => ({
     color: theme.colors.gray[800],
-    bg: undefined,
+    bg: theme.colors.pageBg,
     borderColor: theme.colors.gray[200],
     placeholderColor: theme.colors.gray[400],
 

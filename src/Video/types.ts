@@ -18,6 +18,9 @@ export interface IVideo {
     full?: boolean;
     height?: number;
     width?: number;
+    controls?: boolean;
+    muted?: boolean;
+    loop?: boolean;
 }
 
 export type VideoProps = IVideo & Omit<BoxProps, 'height' | 'width'>;

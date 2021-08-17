@@ -14,6 +14,8 @@ export const InputGroup = ({
     name,
     isInline,
     schema,
+    tooltip,
+    tooltipTitle,
     ...props
 }: InputGroupProps) => {
     const { space } = useTheme();
@@ -28,7 +30,14 @@ export const InputGroup = ({
     });
 
     return (
-        <FormControlWrapper id={name} error={errors} {...spacingProps} {...inputGroupStyle} {...props}>
+        <FormControlWrapper
+            id={name}
+            error={errors}
+            tooltip={tooltip}
+            {...spacingProps}
+            {...inputGroupStyle}
+            {...props}
+        >
             <Box display="flex" position="relative">
                 {Children.map(children, (child, index) => {
                     if (!isValidElement(child)) {

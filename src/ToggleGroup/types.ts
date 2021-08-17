@@ -16,6 +16,7 @@ export interface IToggleGroup {
 
     // 100% width and toggle buttons flex
     isFullWidth?: boolean;
+    tooltip?: React.ReactNode;
 }
 
 export type ToggleGroupProps = Omit<BoxProps, 'onChange'> & IToggleGroup & IFormControl & FormFieldProps;
