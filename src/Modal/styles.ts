@@ -7,6 +7,9 @@ export const modalStyle = ({ isCentered }, theme) => ({
         position: 'relative',
         width: '100%',
         outline: 0,
+        my: 'spacing',
+        maxHeight: '80%',
+        overflow: 'auto',
     },
     scrollBehavior: {
         outside: {
@@ -53,7 +56,7 @@ export const modalWrapperStyle = ({ isCentered }, theme) => ({
     scrollBehavior: {
         outside: {
             maxHeight: '100vh',
-            overflow: 'auto',
+            //overflow: 'auto',
         },
     },
     props: {

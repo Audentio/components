@@ -74,7 +74,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
 Modal.defaultProps = {
     lockFocusAcrossFrames: true,
     returnFocusOnClose: true,
-    scrollBehavior: 'outside',
+    scrollBehavior: 'inside',
     trapFocus: true,
     autoFocus: true,
     blockScrollOnMount: true,
