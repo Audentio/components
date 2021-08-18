@@ -114,4 +114,6 @@ export type ModalContentProps = BoxProps & {
      * The props to forward to the modal's content wrapper
      */
     containerProps?: any;
+
+    outsideContent?: any;
 };

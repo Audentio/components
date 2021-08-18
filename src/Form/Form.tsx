@@ -40,6 +40,15 @@ export function Form(props: FormProps) {
 
     const getFormValue = () => value;
     const getFieldValue = (name) => value[name] || '';
+    const deleteField = (name) => {
+        if (name && value[name]) {
+            setValue((prevValue) => {
+                const updated = prevValue;
+                delete updated[name];
+                return updated;
+            });
+        }
+    };
     const clearForm = () => setValue(initialValue);
     const getFormFieldError = (name) => (errors ? errors[name] : null);
     const deleteFormFieldError = (name) => {
@@ -97,6 +106,7 @@ export function Form(props: FormProps) {
                 registerField,
                 getFormValue,
                 getFieldValue,
+                deleteField,
                 onChange,
                 clearForm,
                 getFormFieldError,
