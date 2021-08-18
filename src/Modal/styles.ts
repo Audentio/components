@@ -6,8 +6,9 @@ export const modalStyle = ({ isCentered }, theme) => ({
         flexDirection: 'column',
         position: 'relative',
         width: '100%',
-        maxHeight: '100%',
         outline: 0,
+        my: 'spacing',
+        maxHeight: '85%',
     },
     scrollBehavior: {
         outside: {
