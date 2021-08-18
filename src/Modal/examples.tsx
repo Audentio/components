@@ -148,7 +148,6 @@ stories.add('Scroll inside', () => {
                     onClose={() => setIsOpen(false)}
                     finalFocusRef={btnRef}
                     isOpen={isOpen}
-                    blockScrollOnMount
                     isCentered
                     scrollBehavior="inside"
                 >
