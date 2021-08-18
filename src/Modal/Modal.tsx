@@ -89,7 +89,7 @@ const MotionDiv = motion.div;
  * necessary `aria-*` properties to indicate that it is a modal
  */
 export const ModalContent = forwardRef((props: ModalContentProps, ref) => {
-    const { children, containerProps: rootProps, ...rest } = props;
+    const { children, containerProps: rootProps, outsideContent, ...rest } = props;
 
     const { getDialogProps, getDialogContainerProps, size, isCentered, noStyles, scrollBehavior } = useModalContext();
 
@@ -102,7 +102,7 @@ export const ModalContent = forwardRef((props: ModalContentProps, ref) => {
         scrollBehavior,
     });
 
-    const { content: contentStyleProps } = useModalStyle({
+    const { content: contentStyleProps, scroll: scrollProps } = useModalStyle({
         isCentered,
         noStyles,
         scrollBehavior,
@@ -116,9 +116,12 @@ export const ModalContent = forwardRef((props: ModalContentProps, ref) => {
         <ModalFocusScope>
             <Box zIndex="modal" {...modalWrapperStyleProps} {...containerProps}>
                 <Card zIndex="modal" p={0} w="100%" maxWidth={size} {...contentStyleProps} {...dialogPropsRest}>
-                    <ModalTransition preset={motionPreset} ref={dialogRef}>
-                        {children}
-                    </ModalTransition>
+                    <Box h="100%" maxH="100%" {...scrollProps}>
+                        <ModalTransition preset={motionPreset} ref={dialogRef}>
+                            {children}
+                        </ModalTransition>
+                    </Box>
+                    {outsideContent}
                 </Card>
             </Box>
         </ModalFocusScope>

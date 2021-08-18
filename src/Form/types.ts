@@ -12,6 +12,7 @@ export type FormContextType = {
     onChange: Function;
     registerField: Function;
     clearForm: Function;
+    deleteField: Function;
     getFormFieldError?: Function;
     deleteFormFieldError?: Function;
     formDisabled?: boolean;

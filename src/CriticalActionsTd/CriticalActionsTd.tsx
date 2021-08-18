@@ -47,17 +47,18 @@ export const CriticalActionsTd = ({ actions, mobileMenu = true, mobileMenuIcon, 
                         </MenuButton>
                         <Portal>
                             <MenuList minWidth="200px" d={['block', null, null, 'none']} color="bodyText">
-                                {actions?.map(({ label, onClick, href }) => (
+                                {actions?.map(({ label, onClick, href, title, isDisabled }) => (
                                     <MenuItem
                                         key={label}
                                         as={href ? Link : Clickable}
-                                        title={label}
+                                        title={title || label}
                                         onClick={(e) => {
                                             if (onClick) {
                                                 onClick(e);
                                             }
                                         }}
                                         href={href}
+                                        isDisabled={isDisabled}
                                     >
                                         {label}
                                     </MenuItem>

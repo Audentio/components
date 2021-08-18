@@ -6,6 +6,7 @@ export const modalStyle = ({ isCentered }, theme) => ({
         flexDirection: 'column',
         position: 'relative',
         width: '100%',
+        maxHeight: '100%',
         outline: 0,
         my: 'spacing',
         maxHeight: '80%',
@@ -15,6 +16,10 @@ export const modalStyle = ({ isCentered }, theme) => ({
         outside: {
             maxHeight: '100%',
             top: 0,
+        },
+        inside: {
+            maxHeight: '100%',
+            overflowY: 'auto',
         },
     },
     header: {
@@ -93,13 +98,12 @@ const useModalStyle = (props) => {
     return {
         content: {
             ...styles.style,
-
-            ...styles.scrollBehavior[props.scrollBehavior],
             ...styles.props,
         },
         header: styles.header,
         body: styles.body,
         footer: styles.footer,
+        scroll: styles.scrollBehavior[props.scrollBehavior],
     };
 };
 
