@@ -8,7 +8,7 @@ export const modalStyle = ({ isCentered }, theme) => ({
         width: '100%',
         outline: 0,
         my: 'spacing',
-        maxHeight: '85%',
+        maxHeight: '80%',
     },
     scrollBehavior: {
         outside: {

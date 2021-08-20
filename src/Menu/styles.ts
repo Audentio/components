@@ -26,6 +26,8 @@ export const menuStyle = (props, theme) => ({
         zIndex: 'popover',
         animation: `${fadeIn} ease-in .2s`,
         _focus: { outline: 0 },
+        maxHeight: "400px",
+        overflowY: 'auto',
     },
 });
 
