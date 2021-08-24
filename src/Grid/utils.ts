@@ -5,7 +5,7 @@ const px = n => (typeof n === 'number' ? n + 'px' : n);
 
 export const widthToColumns = (width, autoFill) => {
     if (Array.isArray(width)) {
-        return width.map(widthToColumns);
+        return width.map( (w) => widthToColumns(w, autoFill));
     }
 
     let grow = 'auto-fit';

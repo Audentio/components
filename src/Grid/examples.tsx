@@ -17,7 +17,7 @@ stories.add('with columns', () => (
 ));
 
 stories.add('with autofit and min child width', () => (
-    <Grid minChildWidth="300px" spacing="spacing-xs">
+    <Grid minChildWidth={['300px', '200px']} spacing="spacing-xs">
         <Box bg="tomato" height="200px" />
         <Box bg="tomato" height="200px" />
         <Box bg="tomato" height="200px" />
