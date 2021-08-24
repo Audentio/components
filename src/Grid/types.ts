@@ -23,6 +23,8 @@ type IGrid = {
      * The row gap between the grid items
      */
     spacingY?: SSGridProps['gridGap'];
+
+    autoFill?: Boolean;
 };
 
 export type GridProps = BoxProps & IGrid;

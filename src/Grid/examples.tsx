@@ -26,6 +26,14 @@ stories.add('with autofit and min child width', () => (
     </Grid>
 ));
 
+stories.add('Using auto-fill with only a few items', () => (
+    <Grid autoFill minChildWidth="150px">
+        <Box bg="tomato" height="150px" />
+        <Box bg="tomato" height="150px" />
+        <Box bg="tomato" height="150px" />
+    </Grid>
+));
+
 stories.add('responsive columns', () => (
     <FullGrid templateColumns={{ base: '1fr', sm: '1fr 1fr 1fr' }} columnGap="40px">
         <Box bg="tomato" height="200px" />

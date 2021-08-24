@@ -13,11 +13,12 @@ export const Grid = forwardRef(
             spacingY = 'spacing',
             spacing = 'spacing',
             minChildWidth,
+            autoFill,
             ...props
         }: GridProps,
         ref
     ) => {
-        const templateColumns = minChildWidth ? widthToColumns(minChildWidth) : countToColumns(columns);
+        const templateColumns = minChildWidth ? widthToColumns(minChildWidth, autoFill) : countToColumns(columns);
 
         return (
             <FullGrid
