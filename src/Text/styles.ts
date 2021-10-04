@@ -9,7 +9,7 @@ export const textStyle = (props, theme) => ({
     kinds: {
         small: {
             fontSize: 'smallBody',
-            lineHeight: 'shorter',
+            lineHeight: 'base',
         },
         body: {
             fontSize: 'body',

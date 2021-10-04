@@ -50,6 +50,8 @@ export interface IPseudoBoxProps {
      */
     _focusWithin?: BoxProps;
 
+    _focusVisible?: BoxProps;
+
     /**
      * Styles to apply when the ARIA attribute `aria-invalid` is `true`
      * - CSS selector `&[aria-invalid=true]`
