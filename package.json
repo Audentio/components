@@ -2,6 +2,7 @@
   "name": "@audentio/stuff",
   "version": "1.4.1",
   "description": "React component library by Audentio",
+  "sideEffects": false,
   "scripts": {
     "start": "start-storybook -p 6006",
     "test": "jest --passWithNoTests",
