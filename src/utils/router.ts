@@ -33,6 +33,7 @@ export const useRouter = () => {
         return {
             id: 'next',
             pathname: router?.pathname,
+            asPath: router?.asPath,
             search: queryString.stringify(router?.query),
             router,
             Link: NextLink,
@@ -44,6 +45,7 @@ export const useRouter = () => {
         return {
             id: 'react-router',
             pathname: reactRouter?.location?.pathname,
+            asPath: reactRouter?.location?.pathname,
             search: reactRouter?.location?.search,
             router: reactRouter?.history,
             Link: ReactRouterLink,
@@ -53,6 +55,7 @@ export const useRouter = () => {
     return {
         id: null,
         pathname: null,
+        asPath: null,
         search: null,
         router: null,
         Link: null,

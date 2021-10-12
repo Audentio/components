@@ -53,15 +53,19 @@ Navigation.Tertiary = function NavigationTertiary(props: BoxProps) {
 
 Navigation.Item = function NavItem(props: NavigationItemProps) {
     const { href, exact, isSubmenuItem, isActive, isParent, isMinified, onClick, ...rest } = props;
-    const { pathname, search } = useRouter();
+    const { pathname, search, asPath: asPathname } = useRouter();
 
     let isLinkActive = false;
-    const path = `${pathname}${search}`;
 
-    if (href && href === path && exact) {
-        isLinkActive = true;
-    } else if (href && path.indexOf(href) > -1 && !exact) {
-        isLinkActive = true;
+    if (href) {
+        const path = `${pathname}${search}`;
+        const asPath = `${asPathname}${search}`;
+
+        if (exact && (href === path || href === asPath)) {
+            isLinkActive = true;
+        } else if (!exact && (path.indexOf(href) > -1 || asPath.indexOf(href) > -1)) {
+            isLinkActive = true;
+        }
     }
 
     const { navItem: navItemStyleProps, activeBar: activeBarStyleProps } = useNavigationStyle({
