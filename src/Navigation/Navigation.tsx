@@ -59,7 +59,7 @@ Navigation.Item = function NavItem(props: NavigationItemProps) {
 
     if (href) {
         const path = `${pathname}${search}`;
-        const asPath = `${asPathname}${search}`;
+        const asPath = `${asPathname}`;
 
         if (exact && (href === path || href === asPath)) {
             isLinkActive = true;
